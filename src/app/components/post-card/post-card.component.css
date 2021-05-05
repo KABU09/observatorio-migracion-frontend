@@ -1,0 +1,46 @@
+.custom-card{
+    width: 100%;
+    height: 100%;
+    transition: transform .1s ease;
+}
+.custom-card:hover{
+    transform: translateY(-10px);
+}
+.card-body-container{
+    padding-top: 1rem;
+}
+.card-body-container *{
+    padding-top: 0rem;
+}
+.card-title:hover{
+    color: var(--font-3);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+@media (max-width: 800px){
+    custom-card{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 150rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+mat-chip{
+    padding: none;
+    margin: none;
+}
+.categories{
+    margin-bottom: 1rem;
+}
+.example-box.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-chip .cdk-drop-list-dragging {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+img{
+    object-fit: cover;
+}

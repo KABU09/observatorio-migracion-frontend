@@ -1,0 +1,61 @@
+<div infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()" style="min-height: 100%">
+    <div class="container">
+        <div class="search-container">
+            <div class="search-form">
+                <input type="text" placeholder="Buscar" class="search-input" [(ngModel)]="searchQuery"
+                    (ngModelChange)="loadContactListSearch()">
+                <img alt="menu" class="search-button" src="assets/icons/search.svg" width="24px" heigth="24px">
+            </div>
+        </div>
+        <p id="instructions">Seleccione alguno de los contactos para ver más información de este.
+        <p>
+
+        <div class="contact-container">
+            <div class="contact" *ngFor="let contact of contactList; let i = index">
+                <div class="initial-letter" (click)="showContact(contact)"
+                    *ngIf="renderFirstLetter(contact, contactList[i-1], i);"><b>{{contact.titulo[0]}}</b>
+                </div>
+                <p class="contact-title" data-bs-toggle="modal" data-bs-target="#contactModal"
+                    (click)="showContact(contact)">{{contact.titulo}}
+                </p>
+                <div class="phone-list">
+                    <a href="tel:{{number}}" *ngFor="let number of contact.numberList">{{number}}</a>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <div class="modal fade"  tabindex="-1" id="contactModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{contactSelected.titulo}}</h5>
+
+                </div>
+                <div class="modal-body">
+                    <p><b>Descripción: </b>{{contactSelected.descripcion}}</p>
+                    <br>
+                    <div class="phone-list"><b>Tel: </b><a href="tel:{{number}}"
+                            *ngFor="let number of contactSelected.numberList">{{number}}</a>
+                    </div>
+                    <br>
+                    <p><b>Horario: </b>{{contactSelected.horario}}</p>
+                    <br>
+                    <p><b>Lugar: </b>{{contactSelected.lugar}}</p>
+                    <br>
+                    <p *ngIf="contactSelected.gps"><a href="{{parseURL(contactSelected.gps)}}">Ver Dirección</a></p>
+                    <br>
+                    <p><b>Web: </b> <a href="{{parseURL(contactSelected.web)}}">{{parseURL(contactSelected.web)}}</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" mat-raised-button
+                        style="background-color: var(--warning-02); color:var(--font-4);"
+                        data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-fab (click)="goTop()"></app-fab>
+</div>
+<app-footer></app-footer>

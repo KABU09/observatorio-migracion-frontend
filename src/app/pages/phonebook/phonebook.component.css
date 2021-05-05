@@ -1,0 +1,112 @@
+.container{
+    width: 40%;
+    
+    margin: 10vh auto;
+    font-size: 1rem;
+    padding: 0 5vw;
+}
+
+.contact{
+    border-bottom: 1px solid var(--font-1);
+    width: 100%;
+    padding: 2vh 0;
+}
+
+.phone-list{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.contact:hover{
+    color: var(--font-3);
+    cursor: pointer;
+}
+.contact-title{
+    font-size: 1.3rem;
+}
+
+
+.search-container{
+    height: 30px;
+}
+.search-form{
+    position:relative; left: 17vw;
+}
+.search-input{
+    border: 1px solid rgb(175, 175, 175);  
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
+    background-color:transparent;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
+    border-radius: 20px;
+    outline: none !important;
+    box-sizing: border-box;
+    padding: 0 1rem;
+
+    color: var(--font1);
+    vertical-align: middle;
+}
+
+.search-button{
+    display: inline;
+    z-index: 99;
+    position: relative;
+    top: 1.5px;
+    right: 2.2rem; 
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--font1);
+}
+.initial-letter{
+    font-size: 3rem;
+}
+a {
+    color: var(--warning-01);
+    text-decoration: underline;
+    margin:0 1%;
+}
+#instructions{
+   padding-right: 40%; margin: 5vh 0;
+}
+.modal-title{
+    font-size: 1.6rem;
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 60%;
+    }
+    .search-form{
+        position:relative; left: 30vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .container{
+        width: 70%;
+    }
+    .search-form{
+        position:relative; left: 35vw;
+    }
+}
+@media (max-width: 420px) {
+    .container{
+        width: 95%;
+    }
+    .search-form{
+        position: static;
+        margin: 0 auto;
+    }
+    #instructions{
+        padding: 0; margin: 5vh 0;
+     }
+     .contact-title{
+         font-size: 1.2rem;
+     }
+     .initial-letter{
+         text-align: center;
+     }
+}

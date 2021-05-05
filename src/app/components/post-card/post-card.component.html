@@ -1,0 +1,17 @@
+<div class="custom-card">
+    <img class="card-img-top" src="{{image}}" alt="post image" width="280px" height="240px" 
+    max-width="280px" max-height="240px" routerLink="/post/{{id}}"
+    style="cursor:pointer;">
+    <div class="card-body-container">
+      <p class="body-line">{{date | date:'longDate'}}</p>
+      <h5 class="card-title" routerLink="/post/{{id}}"><b>{{title}}</b></h5>
+      <div class="categories">
+        <mat-chip-list>
+          <mat-chip *ngFor="let category of categories" routerLink="/blog/{{category.nombre}}">{{category.nombre}}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <p  routerLink="/post/{{id}}"
+      style="cursor:pointer;">{{description}}</p>
+      
+    </div>
+  </div>

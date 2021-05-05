@@ -1,0 +1,28 @@
+
+.post-container{
+    margin: 0 10vw;
+    padding-bottom: 10vh;
+    text-align: justify;
+}
+@media (max-width: 800px){
+    .post-container{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }  
+}
+
+h1{
+    margin: 0 10vw;
+    margin-top: 5vh;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+p {
+    margin: 2vw 10vw;
+}
+
+.categories{
+    margin: 2vw 10vw;
+}
+

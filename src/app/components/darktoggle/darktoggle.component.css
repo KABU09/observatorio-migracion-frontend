@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.toggle-wrapper {
+  /* width: 130px; */
+  width: 65px;
+  display: block;
+}
+
+.toggle {
+  /* height: 65px;
+  width: 130px; */
+  height: 30px;
+  width: 65px;
+  background: var(--black-toggle);
+  border-radius: 40px;
+  /* padding: 12px; */
+  padding: 6px;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+  background: var(--foreground-toggle);
+  transition: background var(--transition-toggle);
+}
+
+.toggle::before {
+  content: "";
+  display: block;
+  /* height: 41px;
+  width: 41px; */
+  height: 17px;
+  width: 17px;
+  border-radius: 30px;
+  background: var(--white-toggle);
+  position: absolute;
+  z-index: 2;
+  transform: translate(0);
+  transition: transform var(--transition-toggle);
+  background: var(--background-toggle);
+  transition: transform var(--transition-toggle), background var(--transition-toggle);
+}
+
+.toggle.enabled::before {
+  transform: translateX(35px);
+  /* transform: translateX(65px); */
+}
+
+.toggle input {
+	position: absolute;
+	top: 0;
+    opacity: 0;
+}
+
+.toggle .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  /* margin: 0 5px; */
+  margin: 0 0px;
+
+}
+
+.toggle .icons svg {
+  fill: var(--background-toggle);
+  /* height: 30px;
+  width: 30px; */
+  height: 17px;
+  width: 17px;
+  z-index: 0;
+}
+
+
+

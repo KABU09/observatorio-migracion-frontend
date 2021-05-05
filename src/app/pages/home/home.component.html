@@ -1,0 +1,77 @@
+<div class="main-text-container">
+    El Observatorio de Migración es un proyecto que busca
+    cras eget leo quis dolor facilisis tincidunt. Etiam sed turpis
+    quam. Nunc semper dolor iaculis placerat dictum. Nam
+    eu placerat magna, in lacinia dolor. Integer gravida ut nisi
+    in fermentum. Aliquam nec mi est. Cras quis metus in leo
+    elementum tristique eu vitae eros. Mauris sit amet laoreet
+    ipsum. ermentum. Aliquam nec mi est. Cras am nec mi nad
+</div>
+
+<h1 class="horizontal-bar horizontal-bar-01">Categorías</h1>
+<div class="categories-container">
+    <div class="category" *ngFor="let category of categories" (click)="filterPostsByCategory(category)">
+        <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}"
+        width="420px" height="236px">
+    </div>
+</div>
+<div class="action-container">
+    <button *ngIf="seeMoreCategories" class="action-container-btn-warning" mat-raised-button
+        (click)="loadMoreCategories()">Ver más</button>
+</div>
+<br>
+<br>
+<h1 class="horizontal-bar horizontal-bar-02">Publicaciones recientes</h1>
+
+<div class="custom-container">
+    <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+</div>
+<div class="action-container">
+    <button class="action-container-btn-warning" mat-raised-button routerLink="/blog">Ir al blog</button>
+</div>
+
+
+<div class="events-container">
+    <h1>Eventos próximos</h1>
+    <div class="custom-table">
+        <div class="row" *ngFor="let activity of activities">
+            <p class="index">{{activity.nombre}}</p>
+            <br>
+            <p>{{activity.fecha | date: 'mediumDate'}} </p>
+            <br>
+            <p><a (click)="openActivity(activity)" data-bs-toggle="modal" data-bs-target="#activityModal"
+                    class="activity-see-more">Ver más información</a></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" id="activityModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{activitySelected.nombre}}</h5>
+
+            </div>
+            <div class="modal-body">
+                <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
+                <br>
+                <span *ngIf="activitySelected.reunion">
+                    <p><b>Enlace Actividad: </b> <a style="color: var(--warning-01)" href="http://{{activitySelected.reunion}}">{{activitySelected.reunion}}</a></p>
+                    <br>
+                </span>
+                <p><b>Descripción: </b></p>
+                <br>
+                <div *ngIf="contentHTML" [innerHTML]="contentHTML">{{contentHTML}}</div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" mat-raised-button
+                    style="background-color: var(--warning-02); color:var(--font-4);"
+                    data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,33 @@
+<div class="infinite-scroll" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+  <div class="tools">
+    <div class="row">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button"
+          id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+          Filtrar por categorías
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
+          <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
+            <mat-checkbox class="category-checkbox" [(ngModel)]="category.value" (change)="valueChanged(category)"><span
+                class="category-checkbox-label">{{category.name}}</span></mat-checkbox>
+          </a>
+        </div>
+
+      </div>
+      <div class="search-container">
+        <div class="search-form">
+          <input type="text" placeholder="Buscar" class="search-input" [(ngModel)]="searchQuery"
+            (ngModelChange)="loadPostListSearch()">
+          <img alt="menu" class="search-button" src="assets/icons/search.svg" width="24px" heigth="24px">
+        </div>
+      </div>
+    </div>
+  </div>
+<app-fab (click)="goTop()"></app-fab>
+  <div class="custom-container" *ngIf="postsList.length">
+    <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

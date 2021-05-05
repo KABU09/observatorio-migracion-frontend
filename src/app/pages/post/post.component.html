@@ -1,0 +1,14 @@
+<h1>{{title}}</h1>
+<p>{{date | date: 'short'}}</p>
+<div class="categories">
+    <mat-chip-list>
+      <mat-chip *ngFor="let category of categories">{{category.nombre}}</mat-chip>
+    </mat-chip-list>
+  </div>
+<div class="post-container" *ngIf="contentHTML" [innerHTML]="contentHTML"></div>
+
+
+
+
+
+
